@@ -1,0 +1,17 @@
+name: clinica-agenda
+
+services:
+  db:
+    image: postgres:16
+    container_name: clinica-db
+    environment:
+      POSTGRES_USER: clinica
+      POSTGRES_PASSWORD: clinica
+      POSTGRES_DB: clinica
+    ports:
+      - "5434:5432"
+    volumes:
+      - clinica_db:/var/lib/postgresql/data
+
+volumes:
+  clinica_db:

@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/clinica
+    username: clinica
+    password: clinica
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+clinica:
+  jwt:
+    secret: ${CLINICA_JWT_SECRET:0123456789abcdef0123456789abcdef}
